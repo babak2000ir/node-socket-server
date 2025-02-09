@@ -11,9 +11,9 @@ client.connect(port, host, function () {
 
 client.on('data', function (data) {
   console.log('Received: ' + data);
-  //if (data.toString().includes('~¬DROP¬~')) {
+  if (data.toString().includes('~¬DROP¬~')) {
     client.destroy(); // kill client after server says DROP
-  //}
+  }
 });
 
 client.on('close', function () {
