@@ -1,0 +1,14 @@
+{
+  "name": "test-client",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/app.js" 
+  },
+  "author": "Babak Jahedmanesh <babak.jahedmanesh@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
