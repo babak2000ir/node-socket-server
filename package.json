@@ -1,0 +1,16 @@
+{
+  "name": "socket-server",
+  "description": "Socket Server",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rimraf dist && cd server && npm run clean",
+    "build": "npm run clean && npm i && cd server && npm run build",
+    "publish": "npm run build && cd server && npm run publish",
+    "prod": "cd dist && node server.cjs",
+    "dev": "concurrently -c yellow --names server --prefix \"{time}-{name}\" --pad-prefix \"cd server && npm run dev\""
+  },
+  "dependencies": {
+    "rimraf": "^6.0.1",
+    "concurrently": "^9.1.2"
+  }
+}

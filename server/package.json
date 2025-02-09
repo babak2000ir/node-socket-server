@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "npm i",
+    "publish": "npm i && webpack --config ./webpack.config.js --mode=production",
+    "dev": "npm i && webpack --config ./webpack.config.js --mode=development",
+    "clean": "rimraf node_modules && rimraf package-lock.json"
+  },
+  "author": "Babak Jahedmanesh <babak.jahedmanesh@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon-webpack-plugin": "^4.8.1",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
