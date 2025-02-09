@@ -8,8 +8,15 @@ const port = process.env.serverport || 8080;
 const host = process.env.serverhost || 'localhost';
 
 var server = net.createServer(function (socket) {
-  socket.write('Echo Server\r\n');
+  socket.push('Echo Server\r\n');
+  //socket.write('Echo Server\r\n');
   socket.pipe(socket);
+  socket.push('~¬DROP¬~');
+  //socket.write('~¬DROP¬~');
+
+  socket.on('error', (error) => {
+    console.error(`Internal Socket Error: ${error}`);
+  });
 });
 
 server.on('listening', () => {
@@ -41,15 +48,18 @@ Init()
     console.log(`Initialization error: ${error}`);
   });
 
-  server.on('error', (err) => {
-    if (e.code === 'EADDRINUSE') {
-      console.error('Address in use, retrying...');
-      setTimeout(() => {
-        server.close();
-        server.listen(port, host);
-      }, 1000);
-    }
-  });
+server.on('error', (err) => {
+  if (e.code === 'EADDRINUSE') {
+    console.error('Address in use, retrying...');
+    setTimeout(() => {
+      server.close();
+      server.listen(port, host);
+    }, 1000);
+  }
+  else {
+    console.error(err);
+  }
+});
 
 async function Init() {
   console.log('Init Started.');
