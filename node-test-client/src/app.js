@@ -1,6 +1,6 @@
 import net from 'net';
 
-const port = 60992;
+const port = 3001;
 const host = '192.168.1.20';
 
 const client = new net.Socket();
@@ -19,4 +19,5 @@ client.on('data', function (data) {
 client.on('close', function () {
   console.log('Connection closed');
 });
+
 
